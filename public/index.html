@@ -21,9 +21,7 @@
 			let afterimagePass;
 
 			const params = {
-
 				enable: true
-
 			};
 
 			init();
@@ -63,47 +61,31 @@
 			}
 
 			function createGUI() {
-
 				const gui = new GUI( { name: 'Damp setting' } );
 				gui.add( afterimagePass.uniforms[ "damp" ], 'value', 0, 1 ).step( 0.001 );
 				gui.add( params, 'enable' );
-
 			}
 
 			function onWindowResize() {
-
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
-
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				composer.setSize( window.innerWidth, window.innerHeight );
-
 			}
 
 			function render() {
-
 				mesh.rotation.x += 0.005;
 				mesh.rotation.y += 0.01;
-
 				if ( params.enable ) {
-
 					composer.render();
-
 				} else {
-
 					renderer.render( scene, camera );
-
 				}
-
 			}
-
 			function animate() {
-
 				requestAnimationFrame( animate );
 				render();
-
 			}
-
 		</script>
 	</body>
 </html>
